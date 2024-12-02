@@ -1,12 +1,19 @@
-import streamlit as st
 import pandas as pd
+import streamlit as st
+import requests
+from io import BytesIO
 
 # URL do arquivo no GitHub
 url_dados = r"https://github.com/luceliofranca/DASHBOARD_CR2/blob/main/df_consolidado.xlsx"
 
-# Carregar os dados
+# Tentar carregar o arquivo Excel
 try:
-    df = pd.read_excel(url_dados, engine="openpyxl")
+    # Fazer o download do arquivo
+    response = requests.get(url_dados)
+    response.raise_for_status()  # Verificar erros no download
+
+    # Abrir o arquivo com Pandas
+    df = pd.read_excel(BytesIO(response.content), engine="openpyxl")
 except Exception as e:
     st.error(f"Erro ao carregar os dados: {e}")
     st.stop()
