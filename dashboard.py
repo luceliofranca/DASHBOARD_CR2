@@ -1,14 +1,14 @@
 import streamlit as st
 import pandas as pd
 
-# Caminho do arquivo Excel
-caminho_dados = r"C:\Users\franc\OneDrive\2024\TRABALHO CR2\ARI CR2\DASHBOARD\df_consolidado.xlsx"
+# URL do arquivo no GitHub
+url_dados = r"https://github.com/luceliofranca/DASHBOARD_CR2/blob/main/df_consolidado.xlsx"
 
-# Carregar os dados do Excel
+# Carregar os dados
 try:
-    df = pd.read_excel(caminho_dados)
-except FileNotFoundError:
-    st.error(f"Arquivo Excel não encontrado no caminho: {caminho_dados}")
+    df = pd.read_excel(url_dados, engine="openpyxl")
+except Exception as e:
+    st.error(f"Erro ao carregar os dados: {e}")
     st.stop()
 
 # Título do Dashboard
