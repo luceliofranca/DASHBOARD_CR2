@@ -4,7 +4,7 @@ import requests
 from io import BytesIO
 
 # URL do arquivo no GitHub
-url_dados = r"https://github.com/luceliofranca/DASHBOARD_CR2/blob/8d499ab07ec35590da94c2f289a14b92ae3f5082/df_consolidado.xlsx"
+url_dados = r"https://raw.githubusercontent.com/luceliofranca/DASHBOARD_CR2/8d499ab07ec35590da94c2f289a14b92ae3f5082/df_consolidado.xlsx"
 
 # Tentar carregar o arquivo Excel
 try:
