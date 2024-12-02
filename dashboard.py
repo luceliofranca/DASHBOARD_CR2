@@ -20,7 +20,7 @@ except Exception as e:
     st.stop()
 
 # Título do Dashboard
-st.title("Dashboard CR 2 PMMT")
+st.title("DASHBOARD CR 2 PMMT")
 
 # Exibir os Dados
 st.subheader("Dados Carregados")
